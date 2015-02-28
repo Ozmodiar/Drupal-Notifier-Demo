@@ -3,6 +3,8 @@
 namespace Drupal\notifier_demo\Page;
 
 use Drupal\notifier_demo\Type\RecoverPasswordType;
+use Notifier\Display\ParameterBag\DisplayMessageParameterBag;
+use Notifier\Display\ParameterBag\DisplayRecipientParameterBag;
 use Notifier\Mail\ParameterBag\MailMessageParameterBag;
 use Notifier\Mail\ParameterBag\MailRecipientParameterBag;
 use Notifier\Message\Message;
@@ -37,9 +39,11 @@ class ExamplePage {
     //TODO: You cannot know which parameterbags to provide here because you don't know the channels that are available...
     $message = new Message(new RecoverPasswordType());
     $message->addParameterBag(new MailMessageParameterBag('Mail subject', 'Body...'));
+    $message->addParameterBag(new DisplayMessageParameterBag('Woop!'));
 
     $recipient = new Recipient();
     $recipient->addParameterBag(new MailRecipientParameterBag('joeri.vandooren@gmail.com'));
+    $recipient->addParameterBag(new DisplayRecipientParameterBag());
 
     $this->notifier->sendMessage($message, array($recipient));
 
