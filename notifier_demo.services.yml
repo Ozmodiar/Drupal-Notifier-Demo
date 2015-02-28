@@ -1,0 +1,14 @@
+parameters:
+  notifier_demo.example_page.class: Drupal\notifier_demo\Page\ExamplePage
+  notifier_demo.recover_password_type.class: Drupal\notifier_demo\Type\RecoverPasswordType
+
+services:
+  notifier_demo.example_page:
+    class: "%notifier_demo.example_page.class%"
+    arguments:
+      - "@notifier"
+
+  notifier_demo.recover_password_type:
+    class: "%notifier_demo.recover_password_type.class%"
+    tags:
+      -  { name: notifier.type }

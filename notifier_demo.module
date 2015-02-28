@@ -1,0 +1,18 @@
+<?php
+
+function notifier_demo_menu() {
+  $items = array();
+
+  $items += DIC::service('notifier_demo.example_page')->buildMenu();
+
+  return $items;
+}
+
+function notifier_demo_mail($key, &$message, $params) {
+  switch($key) {
+    case 'example_mail':
+      $message['subject'] = t('Woooot!');
+      $message['body'][] = t("Dear !username\n\nThere is new content available on the site.");
+      break;
+  }
+}

@@ -1,0 +1,8 @@
+name = "Notifier Demo"
+description = "This module demonstrates the usage of the Notifier module."
+package = "Notifier"
+version = "7.x-1.0"
+core = "7.x"
+project = "notifier_demo"
+dependencies[] = dic
+dependencies[] = notifier
