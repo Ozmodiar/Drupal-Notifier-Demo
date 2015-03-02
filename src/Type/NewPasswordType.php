@@ -7,8 +7,6 @@ use Notifier\Type\TypeInterface;
 class NewPasswordType implements TypeInterface {
 
   /**
-   * @todo: enforce in TypeInterface.
-   *
    * @return string
    */
   public function getIdentifier() {

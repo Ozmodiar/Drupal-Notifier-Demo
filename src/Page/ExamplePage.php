@@ -2,14 +2,14 @@
 
 namespace Drupal\notifier_demo\Page;
 
-use Drupal\notifier_demo\Type\RecoverPasswordType;
-use Notifier\Display\ParameterBag\DisplayMessageParameterBag;
-use Notifier\Display\ParameterBag\DisplayRecipientParameterBag;
 use Notifier\Mail\ParameterBag\MailMessageParameterBag;
 use Notifier\Mail\ParameterBag\MailRecipientParameterBag;
 use Notifier\Message\Message;
 use Notifier\Notifier;
 use Notifier\Recipient\Recipient;
+use Drupal\notifier_demo\Type\RecoverPasswordType;
+use Drupal\notifier_display\ParameterBag\DisplayMessageParameterBag;
+use Drupal\notifier_display\ParameterBag\DisplayRecipientParameterBag;
 
 class ExamplePage {
 
@@ -36,7 +36,6 @@ class ExamplePage {
   }
 
   public function buildPage() {
-    //TODO: You cannot know which parameterbags to provide here because you don't know the channels that are available...
     $message = new Message(new RecoverPasswordType());
     $message->addParameterBag(new MailMessageParameterBag('Mail subject', 'Body...'));
     $message->addParameterBag(new DisplayMessageParameterBag('Woop!'));
